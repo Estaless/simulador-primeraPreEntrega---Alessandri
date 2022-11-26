@@ -40,7 +40,11 @@ const comprarProductos = () => {
     } while (seguirComprando);
 
     const totalConDescuento = realizarDescuento(totalCompra);
-    calcularEnvio(totalConDescuento);
+    calcularEnvio(totalConDescuento); 
+
+    const totalConCuotas = calcularCuotas(totalCompra);
+
+    confirm("Presiona aceptar para terminar tu compra")
 
 };
 
@@ -60,8 +64,8 @@ const validarCantidad = (cantidad) => {
 const realizarDescuento = (totalCompra) => {
     let totalConDescuento = 0;
 
-    if (totalCompra >= 5000) {
-        totalConDescuento = totalCompra * 0.80;
+    if (totalCompra >= 3000) {
+        totalConDescuento = totalCompra * 0.90;
         return totalConDescuento;
     } else {
         return totalCompra;
@@ -73,15 +77,45 @@ const calcularEnvio = (totalCompra) => {
 
     tieneEnvioADomicilio = confirm('¿Queres envío a domicilio?');
 
-    if (tieneEnvioADomicilio && totalCompra >= 2000) {
+    if (tieneEnvioADomicilio && totalCompra >= 3000) {
         alert('Tenes envío gratis. El total de tu compra es $'+totalCompra);
-    } else if (tieneEnvioADomicilio && totalCompra < 2000 && totalCompra !== 0) {
+    } else if (tieneEnvioADomicilio && totalCompra < 3000 && totalCompra !== 0) {
         totalCompra += 700;
-        alert('El evío cuesta $700. El total de tu compra es $'+totalCompra);
+        alert('El envío cuesta $700. El total de tu compra es $'+totalCompra);
     } else {
         alert('El total de tu compra es $'+totalCompra);
     }
 };
+
+const calcularCuotas = (totalCompra) => {
+    let totalConCuotas = false;
+
+    totalConCuotas = confirm("¿Queres abonar en cuotas?")
+    parseInt(prompt("¿Queres pagar en 1, 3 o 6 cuotas?"))
+
+    if (totalConCuotas === 1) {
+        totalConCuotas = totalCompra + 0.10;
+        
+        alert("El total de su compra es $"+totalCompra)
+    }
+    
+    else if (totalConCuotas === 3) {
+        totalConCuotas = totalCompra + 0.25;
+        
+        alert("El total de su compra es $"+totalCompra)
+    }
+
+    else if (totalConCuotas === 6) {
+        totalConCuotas = totalCompra + 0.50;
+        
+        alert("El total de su compra es $"+totalCompra)
+    }                
+    else {
+        alert('El total de tu compra es $'+totalCompra);
+        
+    }
+}
+
 
 
 comprarProductos()
