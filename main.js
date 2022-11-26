@@ -83,11 +83,5 @@ const calcularEnvio = (totalCompra) => {
     }
 };
 
-const calcularCuotas = (totalcompra) => {
-    let totalConCuotas = 0;
-
-    if( )
-
-}
 
 comprarProductos()
