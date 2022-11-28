@@ -40,7 +40,9 @@ const comprarProductos = () => {
     } while (seguirComprando);
 
     const totalConDescuento = realizarDescuento(totalCompra);
-    calcularEnvio(totalConDescuento); 
+    calcularEnvio(totalConDescuento);
+   
+    
 
     const totalConCuotas = calcularCuotas(totalCompra);
 
@@ -51,11 +53,11 @@ const comprarProductos = () => {
 const validarCantidad = (cantidad) => {
     while (Number.isNaN(cantidad) || cantidad <= 0) {
         if (cantidad <= 0) {
-            alert('Debe ingresar una cantidad válida.')
+            alert("Debe ingresar una cantidad válida.")
         } else {
-            alert('Debe agregar un número.')
+            alert("Debe agregar un número.")
         }
-        cantidad = parseInt(prompt('¿Cuántos quiere comprar?'));
+        cantidad = parseInt(prompt("¿Cuántos quiere comprar?"));
     }
 
     return cantidad;
@@ -65,7 +67,7 @@ const realizarDescuento = (totalCompra) => {
     let totalConDescuento = 0;
 
     if (totalCompra >= 3000) {
-        totalConDescuento = totalCompra * 0.90;
+        totalConDescuento = totalCompra * 0.30;
         return totalConDescuento;
     } else {
         return totalCompra;
@@ -75,44 +77,49 @@ const realizarDescuento = (totalCompra) => {
 const calcularEnvio = (totalCompra) => {
     let tieneEnvioADomicilio = false;
 
-    tieneEnvioADomicilio = confirm('¿Queres envío a domicilio?');
+    tieneEnvioADomicilio = confirm("¿Queres envío a domicilio?");
 
     if (tieneEnvioADomicilio && totalCompra >= 3000) {
-        alert('Tenes envío gratis. El total de tu compra es $'+totalCompra);
+        alert("Tenes envío gratis. El total de tu compra es $"+totalCompra);
     } else if (tieneEnvioADomicilio && totalCompra < 3000 && totalCompra !== 0) {
         totalCompra += 700;
-        alert('El envío cuesta $700. El total de tu compra es $'+totalCompra);
+        alert("El envío cuesta $700. El total de tu compra es $"+totalCompra);
     } else {
-        alert('El total de tu compra es $'+totalCompra);
+        alert("El total de tu compra es $"+totalCompra);
     }
 };
 
 const calcularCuotas = (totalCompra) => {
-    let totalConCuotas = false;
+    let totalConCuotas = 0;
 
-    totalConCuotas = confirm("¿Queres abonar en cuotas?")
+    
     parseInt(prompt("¿Queres pagar en 1, 3 o 6 cuotas?"))
 
-    if (totalConCuotas === 1) {
-        totalConCuotas = totalCompra + 0.10;
+ 
+    if (totalConCuotas = 1) {
+        totalConCuotas = totalCompra * 0.10;
+        alert("El total de su compra es $"+totalCompra);
+        return totalConCuotas
         
-        alert("El total de su compra es $"+totalCompra)
     }
     
-    else if (totalConCuotas === 3) {
-        totalConCuotas = totalCompra + 0.25;
+    else if (totalConCuotas = 3) {
+        totalConCuotas = totalCompra * 0.25; 
+        alert("El total de su compra es $"+totalCompra);
         
-        alert("El total de su compra es $"+totalCompra)
+        
+       
     }
 
-    else if (totalConCuotas === 6) {
-        totalConCuotas = totalCompra + 0.50;
+    else if (totalConCuotas = 6) {
+        totalConCuotas = totalCompra * 0.80;
+        alert("El total de su compra es $"+totalCompra);
         
-        alert("El total de su compra es $"+totalCompra)
-    }                
+        
+    }           
+
     else {
-        alert('El total de tu compra es $'+totalCompra);
-        
+        return totalCompra ;
     }
 }
 
