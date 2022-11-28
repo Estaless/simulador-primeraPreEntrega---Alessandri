@@ -98,14 +98,14 @@ const calcularCuotas = (totalCompra) => {
  
     if (totalConCuotas = 1) {
         totalConCuotas = totalCompra * 0.10;
-        alert("El total de su compra es $"+totalCompra);
+        alert("El total de tu compra es $"+totalCompra);
         return totalConCuotas
         
     }
     
     else if (totalConCuotas = 3) {
         totalConCuotas = totalCompra * 0.25; 
-        alert("El total de su compra es $"+totalCompra);
+        alert("El total de tu compra es $"+totalCompra);
         
         
        
@@ -113,13 +113,13 @@ const calcularCuotas = (totalCompra) => {
 
     else if (totalConCuotas = 6) {
         totalConCuotas = totalCompra * 0.80;
-        alert("El total de su compra es $"+totalCompra);
+        alert("El total de tu compra es $"+totalCompra);
         
         
     }           
 
     else {
-        return totalCompra ;
+        return totalConDescuento ;
     }
 }
 
